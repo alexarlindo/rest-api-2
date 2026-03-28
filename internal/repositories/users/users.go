@@ -8,8 +8,8 @@ type Users struct {
 
 }
 
-func New () * Users {
-	return &Users{}
+func New() *Users {
+	return &Users{users : make([]models.User, 0)}
 }
 
 func (u Users)  GetAll() []models.User{
@@ -19,6 +19,15 @@ func (u Users)  GetAll() []models.User{
 func (u *Users) Add(newUser models.User) {
 	u.users = append(u.users, newUser)
 
+}
+
+func (u Users) EmailExists(email string ) bool{
+	for _, v := range u.users{
+		if v.Email ==email {
+			return true
+		}
+	}
+	return false
 }
 
 
