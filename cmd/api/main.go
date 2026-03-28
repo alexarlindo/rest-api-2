@@ -8,8 +8,8 @@ import (
 
 func main() {
 	repos := repositories.New()
-	usecases := usecases.New(repos)
-	h := handlers.New(usecases)
+	useCases := usecases.New(repos)
+	h := handlers.New(useCases)
 	h.Listen(3000)
 
 }
